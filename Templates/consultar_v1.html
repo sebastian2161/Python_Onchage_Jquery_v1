@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+</head>
+<body >
+
+<!--<button name ="boton1" type="button" >Boton1</button>
+<button name ="boton2" type="button" >Boton2</button>
+<button name ="boton3" type="button" >Boton3</button> -->
+
+
+<div id="demo">
+  <h2>Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc();">Change Content</button>
+</div>
+
+    <script type="text/javascript">
+        function consulta_ajax(element){
+            let valor = element.value;
+            let tabla = document.getElementById("tabla");
+
+            $.ajax({
+            url:"/ajax",
+            type:"POST",
+            data: {"value":valor},
+            success: function(response){
+                tabla.innerHTML = response
+
+            },
+            error: function(error){
+                alert ('Error de llamada POST')
+            
+            },
+            });
+        }
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("demo").innerHTML = this.responseText;
+           }
+         };
+             xhttp.open("GET", "/ajax?fname=Henry&lname=Ford", true);
+             xhttp.send();
+        }
+
+        function mensaje(){
+            alert ('Funciona');
+        }
+        
+
+    </script>
+</body>
+
+</html>

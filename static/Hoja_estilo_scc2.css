@@ -1,0 +1,57 @@
+#Contenedor {
+	left: 12%;
+	top: 0px;
+	height: 750px;
+	width: 1024px;
+	background-color: #FF0000;
+	position: absolute;
+}
+#Contenedor #Layer1 {
+	position:absolute;
+	width:1024px;
+	height:115px;
+	z-index:1;
+	left: 0px;
+	background-color: #0000CC;
+
+}
+#Contenedor #Layer3 {
+	position:absolute;
+	width:1024px;
+	height:30px;
+	z-index:1;
+	top: 115px;
+	left: 0px;
+	background-color:#CCFFFF;;
+
+}
+#Contenedor #Layer1 #Layer4 {
+	position:absolute;
+	width:1015px;
+	height:595px;
+	z-index:2;
+	top: 150px;
+	left: 5px;
+	background-color: #CCFFFF;
+}
+#Contenedor #Layer1 #Layer5 {
+	position:absolute;
+	width:210px;
+	height:500px;
+	z-index:3;
+	left: 810px;
+	top: 150px;
+	background-color: #999933;
+}
+
+
+#Contenedor #Layer1 #Layer6 {
+	position:absolute;
+	width:1015px;
+	height:90px;
+	z-index:4;
+	top: 655px;
+	left: 5px;
+	background-color: #CCFFFF;
+}
+
