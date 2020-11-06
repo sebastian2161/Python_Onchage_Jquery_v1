@@ -13,7 +13,8 @@
 
 <div id="demo">
   <h2>Let AJAX change this text</h2>
-  <button type="button" onclick="loadDoc();">Change Content</button>
+  <button type="button" onclick="loadDoc();">Change Content - GET</button>
+  <button type="button" onclick="loadDoc1();">Change Content - POST</button>
 </div>
 
     <script type="text/javascript">
@@ -42,8 +43,20 @@
               document.getElementById("demo").innerHTML = this.responseText;
            }
          };
-             xhttp.open("GET", "/ajax?fname=Henry&lname=Ford", true);
+             xhttp.open("GET", "/ajax?fname=Henry&lname=Ford-GET", true);
              xhttp.send();
+        }
+
+        function loadDoc1() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("demo").innerHTML = this.responseText;
+           }
+         };
+             xhttp.open("POST", "/ajax", true);
+             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             xhttp.send("fname=Henry&lname=Ford-POST");
         }
 
         function mensaje(){
