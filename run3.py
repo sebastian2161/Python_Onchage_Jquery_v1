@@ -46,15 +46,19 @@ def consultar():
 
 @app.route('/ajax', methods=['GET', 'POST'])             
 def ajax():
-    
+        
+        #a= request.args
+        a = request.values.get("x", "")
+        print(a)
         nombre = request.values.get("fname", "")
         #print(nombre)
 
+    
         apellido = request.values.get("lname", "")
         #print(apellido)
 
         #return ('Hola Mundo')
-        return render_template('tabla_v1.html', nombre = nombre, apellido = apellido)
+        return render_template('tabla_v1.html', nombre = nombre, apellido = apellido, json = a)
 
 
 if __name__ == '__main__':

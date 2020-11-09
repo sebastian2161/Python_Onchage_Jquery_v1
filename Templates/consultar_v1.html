@@ -14,7 +14,9 @@
 <div id="demo">
   <h2>Let AJAX change this text</h2>
   <button type="button" onclick="loadDoc();">Change Content - GET</button>
-  <button type="button" onclick="loadDoc1();">Change Content - POST</button>
+  <button type="button" onclick="loadDoc1();">Change Content - POST</button> 
+  <button type="button" onclick="json();">JSON</button> 
+  <button type="button" onclick="json1();">JSON_v1</button> 
 </div>
 
     <script type="text/javascript">
@@ -62,8 +64,19 @@
         function mensaje(){
             alert ('Funciona');
         }
-        
 
+        function json(){
+            var myObj = { name: "John", age: 31, city: "New York" };
+            var myJSON = JSON.stringify(myObj);
+            window.location = "/ajax?x=" + myJSON;
+        }
+
+        function json1(){
+            var myJSON = '{"name":"John", "age":31, "city":"New York"}';
+            var myObj = JSON.parse(myJSON);
+            document.getElementById("demo").innerHTML = myObj.name + ", " + myObj.age;
+        }
+        
     </script>
 </body>
 
